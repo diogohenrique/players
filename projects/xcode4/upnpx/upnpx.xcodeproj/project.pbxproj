@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15004516141298EA00ED553F /* MediaServer1ItemRes.h in Headers */ = {isa = PBXBuildFile; fileRef = 15004514141298E900ED553F /* MediaServer1ItemRes.h */; };
+		15004517141298EA00ED553F /* MediaServer1ItemRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 15004515141298E900ED553F /* MediaServer1ItemRes.m */; };
 		15055E8B1391E2A4003DE49F /* SoapActionsCallManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15055E831391E2A4003DE49F /* SoapActionsCallManagement1.h */; };
 		15055E8C1391E2A4003DE49F /* SoapActionsConfigurationManagement1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15055E841391E2A4003DE49F /* SoapActionsConfigurationManagement1.h */; };
 		15055E8D1391E2A4003DE49F /* SoapActionsDeviceProtection1.h in Headers */ = {isa = PBXBuildFile; fileRef = 15055E851391E2A4003DE49F /* SoapActionsDeviceProtection1.h */; };
@@ -23,6 +25,8 @@
 		15055EA11391E2C1003DE49F /* SoapActionsMessaging1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */; };
 		15055EA21391E2C1003DE49F /* TelephonyClient1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */; };
 		15055EA31391E2C1003DE49F /* TelephonyServer1Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */; };
+		1541026313D2762A000894ED /* OrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1541026113D2762A000894ED /* OrderedDictionary.h */; };
+		1541026413D2762A000894ED /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1541026213D2762A000894ED /* OrderedDictionary.m */; };
 		154978C71393D863008A5BD4 /* BinaryLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C51393D863008A5BD4 /* BinaryLight1Device.h */; };
 		154978C81393D863008A5BD4 /* DimmableLight1Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 154978C61393D863008A5BD4 /* DimmableLight1Device.h */; };
 		1556AB241393DC480059635A /* BasicDeviceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556AB1C1393DC480059635A /* BasicDeviceParser.h */; };
@@ -190,6 +194,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15004514141298E900ED553F /* MediaServer1ItemRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaServer1ItemRes.h; path = ../../../../src/upnp/MediaServer1ItemRes.h; sourceTree = "<group>"; };
+		15004515141298E900ED553F /* MediaServer1ItemRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaServer1ItemRes.m; path = ../../../../src/upnp/MediaServer1ItemRes.m; sourceTree = "<group>"; };
 		15055E831391E2A4003DE49F /* SoapActionsCallManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsCallManagement1.h; path = ../../../../src/api/SoapActionsCallManagement1.h; sourceTree = "<group>"; };
 		15055E841391E2A4003DE49F /* SoapActionsConfigurationManagement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsConfigurationManagement1.h; path = ../../../../src/api/SoapActionsConfigurationManagement1.h; sourceTree = "<group>"; };
 		15055E851391E2A4003DE49F /* SoapActionsDeviceProtection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoapActionsDeviceProtection1.h; path = ../../../../src/api/SoapActionsDeviceProtection1.h; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 		15055E991391E2C1003DE49F /* SoapActionsMessaging1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoapActionsMessaging1.m; path = ../../../../src/upnp/SoapActionsMessaging1.m; sourceTree = "<group>"; };
 		15055E9A1391E2C1003DE49F /* TelephonyClient1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyClient1Device.m; path = ../../../../src/upnp/TelephonyClient1Device.m; sourceTree = "<group>"; };
 		15055E9B1391E2C1003DE49F /* TelephonyServer1Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TelephonyServer1Device.m; path = ../../../../src/upnp/TelephonyServer1Device.m; sourceTree = "<group>"; };
+		1541026113D2762A000894ED /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = ../../../../src/upnp/OrderedDictionary.h; sourceTree = "<group>"; };
+		1541026213D2762A000894ED /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = ../../../../src/upnp/OrderedDictionary.m; sourceTree = "<group>"; };
 		154978C51393D863008A5BD4 /* BinaryLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BinaryLight1Device.h; path = ../../../../src/api/BinaryLight1Device.h; sourceTree = "<group>"; };
 		154978C61393D863008A5BD4 /* DimmableLight1Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DimmableLight1Device.h; path = ../../../../src/api/DimmableLight1Device.h; sourceTree = "<group>"; };
 		1556AB1C1393DC480059635A /* BasicDeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicDeviceParser.h; path = ../../../../src/api/BasicDeviceParser.h; sourceTree = "<group>"; };
@@ -587,6 +595,8 @@
 		15BAC506132C2F8C00F5C41A /* upnp */ = {
 			isa = PBXGroup;
 			children = (
+				1541026113D2762A000894ED /* OrderedDictionary.h */,
+				1541026213D2762A000894ED /* OrderedDictionary.m */,
 				15055E941391E2C1003DE49F /* SoapActionsCallManagement1.m */,
 				15055E951391E2C1003DE49F /* SoapActionsConfigurationManagement1.m */,
 				15055E961391E2C1003DE49F /* SoapActionsDeviceProtection1.m */,
@@ -650,6 +660,8 @@
 				15C44E42132C30490013D453 /* UPnPEvents.m */,
 				15C44E44132C30490013D453 /* UPnPManager.m */,
 				15C44E46132C30490013D453 /* WANConnection1Device.m */,
+				15004514141298E900ED553F /* MediaServer1ItemRes.h */,
+				15004515141298E900ED553F /* MediaServer1ItemRes.m */,
 			);
 			name = upnp;
 			sourceTree = "<group>";
@@ -753,6 +765,8 @@
 				1556AB291393DC480059635A /* SoapActionsSwitchPower1.h in Headers */,
 				1556AB2A1393DC480059635A /* StateVariableList.h in Headers */,
 				1556AB2B1393DC480059635A /* StateVariableRange.h in Headers */,
+				1541026313D2762A000894ED /* OrderedDictionary.h in Headers */,
+				15004516141298EA00ED553F /* MediaServer1ItemRes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +907,8 @@
 				15055EA11391E2C1003DE49F /* SoapActionsMessaging1.m in Sources */,
 				15055EA21391E2C1003DE49F /* TelephonyClient1Device.m in Sources */,
 				15055EA31391E2C1003DE49F /* TelephonyServer1Device.m in Sources */,
+				1541026413D2762A000894ED /* OrderedDictionary.m in Sources */,
+				15004517141298EA00ED553F /* MediaServer1ItemRes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
