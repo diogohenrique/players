@@ -26,8 +26,17 @@
 // ******************************************************************
 
 #import "SoapActionsContentDirectory1.h"
+#import "OrderedDictionary.h"
 
 @implementation SoapActionsContentDirectory1
+
+
+-(id)retain{
+    return [super retain];
+}
+-(id)autorelease{
+    return [super autorelease];
+}
 
 
 -(int)GetSearchCapabilitiesWithOutSearchCaps:(NSMutableString*)searchcaps{
@@ -87,7 +96,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ObjectID", @"BrowseFlag", @"Filter", @"StartingIndex", @"RequestedCount", @"SortCriteria", nil];
     parameterObjects = [NSArray arrayWithObjects:objectid, browseflag, filter, startingindex, requestedcount, sortcriteria, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -109,7 +118,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ContainerID", @"SearchCriteria", @"Filter", @"StartingIndex", @"RequestedCount", @"SortCriteria", nil];
     parameterObjects = [NSArray arrayWithObjects:containerid, searchcriteria, filter, startingindex, requestedcount, sortcriteria, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -131,7 +140,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ContainerID", @"Elements", nil];
     parameterObjects = [NSArray arrayWithObjects:containerid, elements, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -153,7 +162,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ObjectID", nil];
     parameterObjects = [NSArray arrayWithObjects:objectid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DestroyObject" parameters:parameters returnValues:output];
     return ret;
@@ -169,7 +178,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ObjectID", @"CurrentTagValue", @"NewTagValue", nil];
     parameterObjects = [NSArray arrayWithObjects:objectid, currenttagvalue, newtagvalue, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"UpdateObject" parameters:parameters returnValues:output];
     return ret;
@@ -185,7 +194,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SourceURI", @"DestinationURI", nil];
     parameterObjects = [NSArray arrayWithObjects:sourceuri, destinationuri, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -207,7 +216,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"SourceURI", @"DestinationURI", nil];
     parameterObjects = [NSArray arrayWithObjects:sourceuri, destinationuri, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -229,7 +238,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TransferID", nil];
     parameterObjects = [NSArray arrayWithObjects:transferid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StopTransferResource" parameters:parameters returnValues:output];
     return ret;
@@ -245,7 +254,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"TransferID", nil];
     parameterObjects = [NSArray arrayWithObjects:transferid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
@@ -267,7 +276,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ResourceURI", nil];
     parameterObjects = [NSArray arrayWithObjects:resourceuri, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"DeleteResource" parameters:parameters returnValues:output];
     return ret;
@@ -283,7 +292,7 @@
     NSArray *parameterObjects = nil;
     parameterKeys = [NSArray arrayWithObjects:@"ContainerID", @"ObjectID", nil];
     parameterObjects = [NSArray arrayWithObjects:containerid, objectid, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
