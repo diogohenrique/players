@@ -32,60 +32,47 @@
 // **********************************************************************************
 
 
-#import "WANConnection1Device.h"
+#import "LAN1Device.h"
 
 
-@implementation WANConnection1Device
+@implementation LAN1Device
+
 
 
 -(id)init{
     self = [super init];
     
-    if (self) {
-        mIPConnection = nil;
-        mPPPConnection = nil;
+    if (self) {	
+        mLanHostConfigManagement = nil;
 	}
-
+    
 	return self;
 }
 
 
 -(void)dealloc{
-	[mPPPConnection release];
-	[mIPConnection release];
+	
+	[mLanHostConfigManagement release];
 	
 	[super dealloc];
 }
 
 
--(BasicUPnPService*)ipConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
+
+-(SoapActionsLANHostConfigManagement1*)lanHostConfigManagement{
+	if(mLanHostConfigManagement == nil){
+		mLanHostConfigManagement = (SoapActionsLANHostConfigManagement1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:LANHostConfigManagement:1"] soap];
+		[mLanHostConfigManagement retain];
+	}	
+	return mLanHostConfigManagement;
 }
 
 
--(BasicUPnPService*)pppConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
+-(BasicUPnPService*)lanHostConfigManagementService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:LANHostConfigManagement:1"];
 }
 
 
--(SoapActionsWANIPConnection1*)ipConnection{
-	if(mIPConnection == nil){	                                                                     
-		mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
-		[mIPConnection retain];
-	}
-	
-	return mIPConnection;
-}
-
-
--(SoapActionsWANPPPConnection1*)pppConnection{
-	if(mPPPConnection == nil){	                                                                     
-		mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
-		[mPPPConnection retain];
-	}
-	
-	return mPPPConnection;
-}
 
 
 @end

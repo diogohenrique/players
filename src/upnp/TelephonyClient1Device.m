@@ -32,59 +32,93 @@
 // **********************************************************************************
 
 
-#import "WANConnection1Device.h"
+#import "TelephonyClient1Device.h"
 
 
-@implementation WANConnection1Device
+@implementation TelephonyClient1Device
+
 
 
 -(id)init{
     self = [super init];
     
-    if (self) {
-        mIPConnection = nil;
-        mPPPConnection = nil;
-	}
+    if (self) {		
+        mMediaManagement = nil;
+        mMessaging = nil;
+        mInputConfig = nil;
+        mDeviceProtection = nil;
+    }
 
 	return self;
 }
 
 
 -(void)dealloc{
-	[mPPPConnection release];
-	[mIPConnection release];
+	
+	[mMediaManagement release];
+	[mMessaging release];
+	[mInputConfig release];
+	[mDeviceProtection release];
 	
 	[super dealloc];
 }
 
 
--(BasicUPnPService*)ipConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
-}
 
-
--(BasicUPnPService*)pppConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
-}
-
-
--(SoapActionsWANIPConnection1*)ipConnection{
-	if(mIPConnection == nil){	                                                                     
-		mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
-		[mIPConnection retain];
+-(SoapActionsMediaManagement1*)mediaManagement{
+	if(mMediaManagement == nil){
+		mMediaManagement = (SoapActionsMediaManagement1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"] soap];
+		[mMediaManagement retain];
 	}
 	
-	return mIPConnection;
+	return mMediaManagement;
+}
+
+-(SoapActionsMessaging1*)messaging{
+	if(mMessaging == nil){
+		mMessaging = (SoapActionsMessaging1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"] soap];
+		[mMessaging retain];
+	}
+	
+	return mMessaging;
 }
 
 
--(SoapActionsWANPPPConnection1*)pppConnection{
-	if(mPPPConnection == nil){	                                                                     
-		mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
-		[mPPPConnection retain];
+-(SoapActionsInputConfig1*)inputConfig{
+	if(mInputConfig == nil){
+		mInputConfig = (SoapActionsInputConfig1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"] soap];
+		[mInputConfig retain];
 	}
 	
-	return mPPPConnection;
+	return mInputConfig;
+}
+
+-(SoapActionsDeviceProtection1*)deviceProtection{
+	if(mDeviceProtection == nil){
+		mDeviceProtection = (SoapActionsDeviceProtection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:DeviceProtection:1"] soap];
+		[mDeviceProtection retain];
+	}
+	
+	return mDeviceProtection;
+}
+
+
+
+-(BasicUPnPService*)mediaManagementService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:MediaManagement:1"];
+}
+
+
+-(BasicUPnPService*)messagingService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:Messaging:1"];
+}
+
+-(BasicUPnPService*)inputConfigService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:InputConfig:1"];
+}
+
+-(BasicUPnPService*)deviceProtectionService{
+    return [self getServiceForType:@"urn:schemas-upnp-org:service:DeviceProtection:1"];
 }
 
 

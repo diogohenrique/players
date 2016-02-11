@@ -40,13 +40,21 @@
 #import "BinaryLight1Device.h"
 #import "DimmableLight1Device.h"
 #import "WANConnection1Device.h"
+#import "DigitalSecurityCamera1Device.h"
+#import "InternetGateway2Device.h"
+#import "WANConnection2Device.h"
+#import "WAN2Device.h"   
+#import "LAN1Device.h"   
+#import "TelephonyClient1Device.h"
+#import "TelephonyServer1Device.h"
 
 @implementation DeviceFactory
 
 
 -(id)init{
-	[super init];
-	return self;
+    self = [super init];
+    
+    return self;
 }
 
 
@@ -69,6 +77,20 @@
 		device =  [[DimmableLight1Device alloc] initWithSSDPDevice:ssdp];
 	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:1"]){
 		device =  [[WANConnection1Device alloc] initWithSSDPDevice:ssdp];
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANConnectionDevice:2"]){
+		device =  [[WANConnection2Device alloc] initWithSSDPDevice:ssdp];
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:DigitalSecurityCamera:1"]){
+		device =  [[DigitalSecurityCamera1Device alloc] initWithSSDPDevice:ssdp];
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:InternetGatewayDevice:2"]){
+		device =  [[InternetGateway2Device alloc] initWithSSDPDevice:ssdp];
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:WANDevice:2"]){
+		device =  [[WAN2Device alloc] initWithSSDPDevice:ssdp];        
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:LANDevice:1"]){
+		device =  [[LAN1Device alloc] initWithSSDPDevice:ssdp];        
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyClient:1"]){
+		device =  [[TelephonyClient1Device alloc] initWithSSDPDevice:ssdp];        
+	}else if([[ssdp urn] isEqualToString:@"urn:schemas-upnp-org:device:TelephonyServer:1"]){
+		device =  [[TelephonyServer1Device alloc] initWithSSDPDevice:ssdp];        
 	}else{
 		device =  [[BasicUPnPDevice alloc] initWithSSDPDevice:ssdp];
 	}

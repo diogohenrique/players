@@ -32,18 +32,18 @@
 // **********************************************************************************
 
 
-#import "WANConnection1Device.h"
+#import "WAN2Device.h"
 
 
-@implementation WANConnection1Device
+@implementation WAN2Device
+
 
 
 -(id)init{
     self = [super init];
     
     if (self) {
-        mIPConnection = nil;
-        mPPPConnection = nil;
+        mCommonInterfaceConfig = nil;
 	}
 
 	return self;
@@ -51,41 +51,28 @@
 
 
 -(void)dealloc{
-	[mPPPConnection release];
-	[mIPConnection release];
+	
+	[mCommonInterfaceConfig release];
 	
 	[super dealloc];
 }
 
 
--(BasicUPnPService*)ipConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
+
+-(SoapActionsWANCommonInterfaceConfig1*)commonInterfaceConfig{
+	if(mCommonInterfaceConfig == nil){
+		mCommonInterfaceConfig = (SoapActionsWANCommonInterfaceConfig1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1"] soap];
+		[mCommonInterfaceConfig retain];
+	}	
+	return mCommonInterfaceConfig;
 }
 
 
--(BasicUPnPService*)pppConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
+-(BasicUPnPService*)commonInterfaceConfigService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1"];
 }
 
 
--(SoapActionsWANIPConnection1*)ipConnection{
-	if(mIPConnection == nil){	                                                                     
-		mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
-		[mIPConnection retain];
-	}
-	
-	return mIPConnection;
-}
-
-
--(SoapActionsWANPPPConnection1*)pppConnection{
-	if(mPPPConnection == nil){	                                                                     
-		mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
-		[mPPPConnection retain];
-	}
-	
-	return mPPPConnection;
-}
 
 
 @end

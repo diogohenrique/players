@@ -34,16 +34,22 @@
 #import "SoapActionsRendering.h"
 
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsRendering
 
 
 -(id)initWithService:(BasicUPnPService*)service{
-	[super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
-					eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
-			   upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];
-	upnpservice = service;
-	[upnpservice retain];
-	
+    self = [super initWithActionURL:[NSURL URLWithString:[service controlURL] relativeToURL:[service baseURL]] 
+                           eventURL:[NSURL URLWithString:[service eventURL] relativeToURL:[service baseURL]] 
+                      upnpnamespace:@"urn:schemas-upnp-org:service:RenderingControl:1"];
+    
+    if (self) {
+        /* TODO: set upnpservice as retain property */
+        upnpservice = service;
+        [upnpservice retain];
+	}
+    
 	return self;
 }
 
@@ -64,7 +70,7 @@
 	
 	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
 	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
 	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
@@ -94,7 +100,7 @@
 	
 	NSArray *parameterKeys = [NSArray arrayWithObjects:@"InstanceID", @"Channel", nil];
 	NSArray *parameterObjects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID], channel, nil];	
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	NSArray *outputKeys = [NSArray arrayWithObjects:@"CurrentVolume", nil];
 	NSArray *outputObjects = [NSArray arrayWithObjects:currentVolumeString, nil];	
 	NSDictionary *output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
@@ -121,7 +127,7 @@
 	NSMutableString *currentPresetString = [[NSMutableString alloc] init]; 	
 	NSArray *parameterKeys		= [NSArray arrayWithObjects:@"InstanceID",									nil];
 	NSArray *parameterObjects	= [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", instanceID],  nil];		
-	NSDictionary *parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+	NSDictionary *parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 	
 	NSArray *outputKeys			= [NSArray arrayWithObjects:@"CurrentPresetNameList",	nil];
 	NSArray *outputObjects		= [NSArray arrayWithObjects:currentPresetString,		nil];	

@@ -32,60 +32,47 @@
 // **********************************************************************************
 
 
-#import "WANConnection1Device.h"
+#import "InternetGateway2Device.h"
 
 
-@implementation WANConnection1Device
+@implementation InternetGateway2Device
+
 
 
 -(id)init{
     self = [super init];
     
-    if (self) {
-        mIPConnection = nil;
-        mPPPConnection = nil;
+    if (self) {	
+        mLayer3Forwarding = nil;
 	}
-
+    
 	return self;
 }
 
 
 -(void)dealloc{
-	[mPPPConnection release];
-	[mIPConnection release];
+	
+	[mLayer3Forwarding release];
 	
 	[super dealloc];
 }
 
 
--(BasicUPnPService*)ipConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"];
+
+-(SoapActionsLayer3Forwarding1*)layer3Forwarding{
+	if(mLayer3Forwarding == nil){
+		mLayer3Forwarding = (SoapActionsLayer3Forwarding1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"] soap];
+		[mLayer3Forwarding retain];
+	}	
+	return mLayer3Forwarding;
 }
 
 
--(BasicUPnPService*)pppConnectionService{
-	return [self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"];
+-(BasicUPnPService*)layer3ForwardingService{
+	return [self getServiceForType:@"urn:schemas-upnp-org:service:Layer3Forwarding:1"];
 }
 
 
--(SoapActionsWANIPConnection1*)ipConnection{
-	if(mIPConnection == nil){	                                                                     
-		mIPConnection = (SoapActionsWANIPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANIPConnection:1"] soap];
-		[mIPConnection retain];
-	}
-	
-	return mIPConnection;
-}
-
-
--(SoapActionsWANPPPConnection1*)pppConnection{
-	if(mPPPConnection == nil){	                                                                     
-		mPPPConnection = (SoapActionsWANPPPConnection1*)[[self getServiceForType:@"urn:schemas-upnp-org:service:WANPPPConnection:1"] soap];
-		[mPPPConnection retain];
-	}
-	
-	return mPPPConnection;
-}
 
 
 @end
