@@ -96,9 +96,6 @@
     self = [super initWithNamespaceSupport:YES];
     
     if (self) {
-        uriCollection = [[OrderedDictionary alloc] init];
-        resources = [[NSMutableArray alloc] init];
-        
         /* TODO: mediaObjects -> retain property */
         mediaObjects = mediaObjectsArray;
         [mediaObjects retain];
@@ -164,7 +161,7 @@
 
 
 -(void)empty{
-	[self setMediaClass:@""];
+    [self setMediaClass:@""];
 	[self setMediaTitle:@""];
 	[self setMediaID:@""];
 	[self setArtist:@""];
@@ -173,10 +170,30 @@
 	[self setGenre:@""];
 	[self setAlbumArt:nil];
 	[self setDuration:nil];
-    
-    
-    [resources removeAllObjects];
-    [uriCollection removeAllObjects];
+
+    [resources release];
+    resources = [[NSMutableArray alloc] init];
+    [uriCollection release];
+    uriCollection = [[NSMutableDictionary alloc] init];
+}
+
+
+//hh:mm:ss -> seconds
+-(int)_HMS2Seconds:(NSString *)time
+{
+	int s = 0;
+
+	NSArray *items = [time componentsSeparatedByString:@":"];
+	if ([items count] == 3){
+		//hh
+		s = s + [(NSString*)[items objectAtIndex:0] intValue] * 60 * 60;
+		//mm
+		s = s + [(NSString*)[items objectAtIndex:1] intValue] * 60;
+		//ss
+		s = s + [(NSString*)[items objectAtIndex:2] intValue];
+	}
+
+	return s;
 }
 
 
@@ -201,8 +218,8 @@
 		[media setObjectClass:mediaClass];
 		[media setChildCount:childCount];
 		[media setAlbumArt:albumArt];
-		
-		[mediaObjects addObject:media];
+
+        [mediaObjects addObject:media];
 
 		[media release];
 
@@ -222,7 +239,6 @@
 		MediaServer1ItemObject *media = [[MediaServer1ItemObject alloc] init];
 		
 		[media setIsContainer:NO];
-		
 
 		[media setObjectID:mediaID];
 		[media setParentID:parentID];
@@ -238,15 +254,12 @@
 		[media setAudioChannels:audioChannels];	
 		[media setSize:size];
 		[media setDuration:duration];
-        if ([duration respondsToSelector:@selector(HMS2Seconds)])
-            [media setDurationInSeconds:[duration HMS2Seconds]];
-        else
-            [media setDurationInSeconds:@""];
+        [media setDurationInSeconds:[self _HMS2Seconds:duration]];
 		[media setBitrate:bitrate];
 		[media setIcon:icon]; //REMOVE THIS ?
 		[media setAlbumArt:albumArt];
-        [media setUriCollection:uriCollection];
-                
+        [media setUriCollection:[NSDictionary dictionaryWithDictionary:uriCollection]];
+
         MediaServer1ItemRes *resource = nil;		
         NSEnumerator *e = [resources objectEnumerator];
         while((resource = [e nextObject])){
@@ -281,17 +294,13 @@
         [r setDuration: duration];
         [r setNrAudioChannels: [audioChannels intValue]];
         [r setProtocolInfo: protocolInfo];
-        [r setSize: [size intValue]];
-        if ([duration respondsToSelector:@selector(HMS2Seconds)])
-            [r setDurationInSeconds:[duration HMS2Seconds]];
-        else
-            [r setDurationInSeconds:@""];
+        [r setSize: [size longLongValue]];
+        [r setDurationInSeconds:[self _HMS2Seconds:duration]];
         [resources addObject:r];
         [r release];
         
-	}else{
+	}else
         [uriCollection setObject:uri forKey:protocolInfo]; //@todo: we overwrite uri's with same protocol info
-	}
 }
 
 -(void)setUri:(NSString*)s{
