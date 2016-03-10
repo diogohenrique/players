@@ -30,15 +30,6 @@
 
 @implementation SoapActionsContentDirectory1
 
-
--(id)retain{
-    return [super retain];
-}
--(id)autorelease{
-    return [super autorelease];
-}
-
-
 -(int)GetSearchCapabilitiesWithOutSearchCaps:(NSMutableString*)searchcaps{
     int ret = 0;
 
@@ -304,6 +295,4 @@
     return ret;
 }
 
-
-
-@end
+@end

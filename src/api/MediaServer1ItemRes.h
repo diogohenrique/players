@@ -50,18 +50,15 @@
     NSString *duration;
     int nrAudioChannels;
     NSString *protocolInfo;
-    int size;
+    long long int size;
     int durationInSeconds;
 }
-
--(void)dealloc;
 
 @property(readwrite) int bitrate;
 @property(retain, nonatomic) NSString *duration;
 @property(readwrite) int nrAudioChannels;
 @property(retain, nonatomic) NSString *protocolInfo;
-@property(readwrite) int size;
+@property(readwrite) long long int size;
 @property(readwrite) int durationInSeconds;
-
 
 @end
