@@ -62,6 +62,9 @@ public:
 	int RemoveObserver(SSDPObserver* observer);
 	int Advertise();
 	int Search();
+    int SearchForMediaServer();
+    int NotifyAlive();
+    int NotifyByeBye();
     void SetOS(const char* os);
     void SetProduct(const char* product);    
 	SSDPDB* GetDB();
@@ -72,11 +75,13 @@ private:
 	struct sockaddr_in mDstaddr;
 	struct sockaddr_in mUnicastSrcaddr;
 	struct ip_mreq mMreq;
+	struct ip_mreq mMreqU;
 	std::vector<SSDPObserver*> mObservers;
 	u8 mReadLoop;
 	pthread_t mReadThread;
 	fd_set mExceptionFDS;
 	fd_set mReadFDS;
+	fd_set mWriteFDS;
 	u16 mTTL;
     std::string mOS;
     std::string mProduct;

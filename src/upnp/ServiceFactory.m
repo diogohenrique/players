@@ -31,86 +31,21 @@
 //
 // **********************************************************************************
 
-/*
-#include <iostream>
 
-#include "upnp.h"
-#include "ssdp.h"
-#include "ssdpobserver.h"
-#include "ssdpdbobserver.h"
+#import "ServiceFactory.h"
+#import "BasicServiceParser.h"
 
-#import "Test_ObjC.h"
+@implementation ServiceFactory
 
 
-class MainClass: public SSDPObserver, public SSDPDBObserver{
-public:
-	int SSDPMessage(SSDPParser *parsedmsg){
-		switch(parsedmsg->GetType()){
-			case SSDP_TYPE_HTTP:
-				//printf("SSDP_TYPE_HTTP\n");
-				break;
-			case SSDP_TYPE_NOTIFY:
-				//printf("SSDP_TYPE_NOTIFY\n");
-				break;
-			case SSDP_TYPE_MSEARCH:
-				//printf("SSDP_TYPE_MSEARCH\n");
-				break;
-			default:
-				printf("unknown\n");
-				break;
-		}
-		return 0;
-	}
-	
-	int SSDPDBMessage(SSDPDBMsg* msg){
-		SSDPDB* db = UPNP::GetInstance()->GetSSDP()->GetDB();
+-(BasicUPnPService*)allocServiceForSSDPService:(SSDPDBDevice_ObjC*)ssdp{
+	BasicUPnPService* service = nil;	
 
-		switch(msg->type){
-			case SSDPDBMsg_DeviceUpdate:
-			case SSDPDBMsg_ServiceUpdate:
-				{
-					db->Lock();
-					vector<SSDPDBDevice*>devices = db->GetDevices();
-					std::vector<SSDPDBDevice*>::iterator it;
-					printf("devices.size()=%d\n", devices.size());
-					for(it=devices.begin(); it<devices.end(); it++){
-						printf("full usn=%s, type=%s, version=%s, location=%s\n", ((SSDPDBDevice*)*it)->usn.c_str(), ((SSDPDBDevice*)*it)->type.c_str(), ((SSDPDBDevice*)*it)->version.c_str(), ((SSDPDBDevice*)*it)->location.c_str());						
-					}
-					db->Unlock();
-				}	
-				printf("SSDPDBMsg_DeviceUpdate\n");
-				break;
-		}
-		return 0;
-	}
-	
-private:
-};
+	//Our BasicUPnPService is generic enough, no need so far to make more specialized, derived services
+	service = [[BasicUPnPService alloc] initWithSSDPDevice:ssdp]; 
 
-int main (int argc, char * const argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-	
-	MainClass mm;
-	
-	Test_ObjC* testObjC = [[Test_ObjC alloc] init];
-	
-	UPNP* upnp = UPNP::GetInstance();
 
-	SSDP* ssdp = upnp->GetSSDP();
-	SSDPDB* db = ssdp->GetDB();
-//	db->AddObserver(&mm);
-//	ssdp->AddObserver(&mm);
-	ssdp->Start();
-    
-	while(1){
-		ssdp->Search();
-		printf("sleep...\n");
-		sleep(30);
-	}
-	
-	[testObjC release];
-	
-	return 0;
+	return service;
 }
-*/
+
+@end
