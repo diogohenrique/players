@@ -27,34 +27,36 @@
 
 #import "SoapActionsDimming1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsDimming1
 
 
--(int)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget{
-    int ret = 0;
+-(NSInteger)SetLoadLevelTargetWithnewLoadlevelTarget:(NSString*)newloadleveltarget{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newLoadlevelTarget", nil];
-    parameterObjects = [NSArray arrayWithObjects:newloadleveltarget, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newLoadlevelTarget"];
+    parameterObjects = @[newloadleveltarget];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetLoadLevelTarget" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget{
-    int ret = 0;
+-(NSInteger)GetLoadLevelTargetWithOutGetLoadlevelTarget:(NSMutableString*)getloadleveltarget{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"GetLoadlevelTarget", nil];
-    outputObjects = [NSArray arrayWithObjects:getloadleveltarget, nil];
+    outputKeys = @[@"GetLoadlevelTarget"];
+    outputObjects = @[getloadleveltarget];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetLoadLevelTarget" parameters:parameters returnValues:output];
@@ -62,15 +64,15 @@
 }
 
 
--(int)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus{
-    int ret = 0;
+-(NSInteger)GetLoadLevelStatusWithOutretLoadlevelStatus:(NSMutableString*)retloadlevelstatus{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retLoadlevelStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:retloadlevelstatus, nil];
+    outputKeys = @[@"retLoadlevelStatus"];
+    outputObjects = @[retloadlevelstatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetLoadLevelStatus" parameters:parameters returnValues:output];
@@ -78,47 +80,47 @@
 }
 
 
--(int)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel{
-    int ret = 0;
+-(NSInteger)SetOnEffectLevelWithnewOnEffectLevel:(NSString*)newoneffectlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newOnEffectLevel", nil];
-    parameterObjects = [NSArray arrayWithObjects:newoneffectlevel, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newOnEffectLevel"];
+    parameterObjects = @[newoneffectlevel];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetOnEffectLevel" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)SetOnEffectWithnewOnEffect:(NSString*)newoneffect{
-    int ret = 0;
+-(NSInteger)SetOnEffectWithnewOnEffect:(NSString*)newoneffect{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newOnEffect", nil];
-    parameterObjects = [NSArray arrayWithObjects:newoneffect, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newOnEffect"];
+    parameterObjects = @[newoneffect];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetOnEffect" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel{
-    int ret = 0;
+-(NSInteger)GetOnEffectParametersWithOutretOnEffect:(NSMutableString*)retoneffect OutretOnEffectLevel:(NSMutableString*)retoneffectlevel{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retOnEffect", @"retOnEffectLevel", nil];
-    outputObjects = [NSArray arrayWithObjects:retoneffect, retoneffectlevel, nil];
+    outputKeys = @[@"retOnEffect", @"retOnEffectLevel"];
+    outputObjects = @[retoneffect, retoneffectlevel];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetOnEffectParameters" parameters:parameters returnValues:output];
@@ -126,8 +128,8 @@
 }
 
 
--(int)StepUp{
-    int ret = 0;
+-(NSInteger)StepUp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -136,8 +138,8 @@
 }
 
 
--(int)StepDown{
-    int ret = 0;
+-(NSInteger)StepDown{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -146,8 +148,8 @@
 }
 
 
--(int)StartRampUp{
-    int ret = 0;
+-(NSInteger)StartRampUp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -156,8 +158,8 @@
 }
 
 
--(int)StartRampDown{
-    int ret = 0;
+-(NSInteger)StartRampDown{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -166,8 +168,8 @@
 }
 
 
--(int)StopRamp{
-    int ret = 0;
+-(NSInteger)StopRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -176,47 +178,47 @@
 }
 
 
--(int)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime{
-    int ret = 0;
+-(NSInteger)StartRampToLevelWithnewLoadLevelTarget:(NSString*)newloadleveltarget newRampTime:(NSString*)newramptime{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newLoadLevelTarget", @"newRampTime", nil];
-    parameterObjects = [NSArray arrayWithObjects:newloadleveltarget, newramptime, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newLoadLevelTarget", @"newRampTime"];
+    parameterObjects = @[newloadleveltarget, newramptime];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"StartRampToLevel" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta{
-    int ret = 0;
+-(NSInteger)SetStepDeltaWithnewStepDelta:(NSString*)newstepdelta{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newStepDelta", nil];
-    parameterObjects = [NSArray arrayWithObjects:newstepdelta, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newStepDelta"];
+    parameterObjects = @[newstepdelta];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetStepDelta" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta{
-    int ret = 0;
+-(NSInteger)GetStepDeltaWithOutretStepDelta:(NSMutableString*)retstepdelta{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retStepDelta", nil];
-    outputObjects = [NSArray arrayWithObjects:retstepdelta, nil];
+    outputKeys = @[@"retStepDelta"];
+    outputObjects = @[retstepdelta];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetStepDelta" parameters:parameters returnValues:output];
@@ -224,31 +226,31 @@
 }
 
 
--(int)SetRampRateWithnewRampRate:(NSString*)newramprate{
-    int ret = 0;
+-(NSInteger)SetRampRateWithnewRampRate:(NSString*)newramprate{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newRampRate", nil];
-    parameterObjects = [NSArray arrayWithObjects:newramprate, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newRampRate"];
+    parameterObjects = @[newramprate];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetRampRate" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate{
-    int ret = 0;
+-(NSInteger)GetRampRateWithOutretRampRate:(NSMutableString*)retramprate{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retRampRate", nil];
-    outputObjects = [NSArray arrayWithObjects:retramprate, nil];
+    outputKeys = @[@"retRampRate"];
+    outputObjects = @[retramprate];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetRampRate" parameters:parameters returnValues:output];
@@ -256,8 +258,8 @@
 }
 
 
--(int)PauseRamp{
-    int ret = 0;
+-(NSInteger)PauseRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -266,8 +268,8 @@
 }
 
 
--(int)ResumeRamp{
-    int ret = 0;
+-(NSInteger)ResumeRamp{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
@@ -276,15 +278,15 @@
 }
 
 
--(int)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping{
-    int ret = 0;
+-(NSInteger)GetIsRampingWithOutretIsRamping:(NSMutableString*)retisramping{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retIsRamping", nil];
-    outputObjects = [NSArray arrayWithObjects:retisramping, nil];
+    outputKeys = @[@"retIsRamping"];
+    outputObjects = @[retisramping];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetIsRamping" parameters:parameters returnValues:output];
@@ -292,15 +294,15 @@
 }
 
 
--(int)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused{
-    int ret = 0;
+-(NSInteger)GetRampPausedWithOutretRampPaused:(NSMutableString*)retramppaused{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retRampPaused", nil];
-    outputObjects = [NSArray arrayWithObjects:retramppaused, nil];
+    outputKeys = @[@"retRampPaused"];
+    outputObjects = @[retramppaused];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetRampPaused" parameters:parameters returnValues:output];
@@ -308,15 +310,15 @@
 }
 
 
--(int)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime{
-    int ret = 0;
+-(NSInteger)GetRampTimeWithOutretRampTime:(NSMutableString*)retramptime{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"retRampTime", nil];
-    outputObjects = [NSArray arrayWithObjects:retramptime, nil];
+    outputKeys = @[@"retRampTime"];
+    outputObjects = @[retramptime];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetRampTime" parameters:parameters returnValues:output];

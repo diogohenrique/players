@@ -9,15 +9,15 @@
 @implementation SoapActionsConfigurationManagement1
 
 
--(int)GetSupportedDataModelsWithOutSupportedDataModels:(NSMutableString*)supporteddatamodels{
-    int ret = 0;
+-(NSInteger)GetSupportedDataModelsWithOutSupportedDataModels:(NSMutableString*)supporteddatamodels{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"SupportedDataModels", nil];
-    outputObjects = [NSArray arrayWithObjects:supporteddatamodels, nil];
+    outputKeys = @[@"SupportedDataModels"];
+    outputObjects = @[supporteddatamodels];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSupportedDataModels" parameters:parameters returnValues:output];
@@ -25,21 +25,21 @@
 }
 
 
--(int)GetSupportedParametersWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result{
-    int ret = 0;
+-(NSInteger)GetSupportedParametersWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"StartingNode", @"SearchDepth", nil];
-    parameterObjects = [NSArray arrayWithObjects:startingnode, searchdepth, nil];
+    parameterKeys = @[@"StartingNode", @"SearchDepth"];
+    parameterObjects = @[startingnode, searchdepth];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Result", nil];
-    outputObjects = [NSArray arrayWithObjects:result, nil];
+    outputKeys = @[@"Result"];
+    outputObjects = @[result];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSupportedParameters" parameters:parameters returnValues:output];
@@ -47,21 +47,21 @@
 }
 
 
--(int)GetInstancesWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result{
-    int ret = 0;
+-(NSInteger)GetInstancesWithStartingNode:(NSString*)startingnode SearchDepth:(NSString*)searchdepth OutResult:(NSMutableString*)result{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"StartingNode", @"SearchDepth", nil];
-    parameterObjects = [NSArray arrayWithObjects:startingnode, searchdepth, nil];
+    parameterKeys = @[@"StartingNode", @"SearchDepth"];
+    parameterObjects = @[startingnode, searchdepth];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Result", nil];
-    outputObjects = [NSArray arrayWithObjects:result, nil];
+    outputKeys = @[@"Result"];
+    outputObjects = @[result];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetInstances" parameters:parameters returnValues:output];
@@ -69,21 +69,21 @@
 }
 
 
--(int)GetValuesWithParameters:(NSString*)parameters OutParameterValueList:(NSMutableString*)parametervaluelist{
-    int ret = 0;
+-(NSInteger)GetValuesWithParameters:(NSString*)parameters OutParameterValueList:(NSMutableString*)parametervaluelist{
+    NSInteger ret = 0;
 
     NSDictionary *parametersd = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"Parameters", nil];
-    parameterObjects = [NSArray arrayWithObjects:parameters, nil];
+    parameterKeys = @[@"Parameters"];
+    parameterObjects = @[parameters];
     parametersd = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ParameterValueList", nil];
-    outputObjects = [NSArray arrayWithObjects:parametervaluelist, nil];
+    outputKeys = @[@"ParameterValueList"];
+    outputObjects = @[parametervaluelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetValues" parameters:parametersd returnValues:output];
@@ -91,21 +91,21 @@
 }
 
 
--(int)GetSelectedValuesWithStartingNode:(NSString*)startingnode Filter:(NSString*)filter OutParameterValueList:(NSMutableString*)parametervaluelist{
-    int ret = 0;
+-(NSInteger)GetSelectedValuesWithStartingNode:(NSString*)startingnode Filter:(NSString*)filter OutParameterValueList:(NSMutableString*)parametervaluelist{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"StartingNode", @"Filter", nil];
-    parameterObjects = [NSArray arrayWithObjects:startingnode, filter, nil];
+    parameterKeys = @[@"StartingNode", @"Filter"];
+    parameterObjects = @[startingnode, filter];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ParameterValueList", nil];
-    outputObjects = [NSArray arrayWithObjects:parametervaluelist, nil];
+    outputKeys = @[@"ParameterValueList"];
+    outputObjects = @[parametervaluelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSelectedValues" parameters:parameters returnValues:output];
@@ -113,21 +113,21 @@
 }
 
 
--(int)SetValuesWithParameterValueList:(NSString*)parametervaluelist OutStatus:(NSMutableString*)status{
-    int ret = 0;
+-(NSInteger)SetValuesWithParameterValueList:(NSString*)parametervaluelist OutStatus:(NSMutableString*)status{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"ParameterValueList", nil];
-    parameterObjects = [NSArray arrayWithObjects:parametervaluelist, nil];
+    parameterKeys = @[@"ParameterValueList"];
+    parameterObjects = @[parametervaluelist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Status", nil];
-    outputObjects = [NSArray arrayWithObjects:status, nil];
+    outputKeys = @[@"Status"];
+    outputObjects = @[status];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"SetValues" parameters:parameters returnValues:output];
@@ -135,21 +135,21 @@
 }
 
 
--(int)CreateInstanceWithMultiInstanceName:(NSString*)multiinstancename ChildrenInitialization:(NSString*)childreninitialization OutInstanceIdentifier:(NSMutableString*)instanceidentifier OutStatus:(NSMutableString*)status{
-    int ret = 0;
+-(NSInteger)CreateInstanceWithMultiInstanceName:(NSString*)multiinstancename ChildrenInitialization:(NSString*)childreninitialization OutInstanceIdentifier:(NSMutableString*)instanceidentifier OutStatus:(NSMutableString*)status{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"MultiInstanceName", @"ChildrenInitialization", nil];
-    parameterObjects = [NSArray arrayWithObjects:multiinstancename, childreninitialization, nil];
+    parameterKeys = @[@"MultiInstanceName", @"ChildrenInitialization"];
+    parameterObjects = @[multiinstancename, childreninitialization];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"InstanceIdentifier", @"Status", nil];
-    outputObjects = [NSArray arrayWithObjects:instanceidentifier, status, nil];
+    outputKeys = @[@"InstanceIdentifier", @"Status"];
+    outputObjects = @[instanceidentifier, status];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"CreateInstance" parameters:parameters returnValues:output];
@@ -157,21 +157,21 @@
 }
 
 
--(int)DeleteInstanceWithInstanceIdentifier:(NSString*)instanceidentifier OutStatus:(NSMutableString*)status{
-    int ret = 0;
+-(NSInteger)DeleteInstanceWithInstanceIdentifier:(NSString*)instanceidentifier OutStatus:(NSMutableString*)status{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"InstanceIdentifier", nil];
-    parameterObjects = [NSArray arrayWithObjects:instanceidentifier, nil];
+    parameterKeys = @[@"InstanceIdentifier"];
+    parameterObjects = @[instanceidentifier];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Status", nil];
-    outputObjects = [NSArray arrayWithObjects:status, nil];
+    outputKeys = @[@"Status"];
+    outputObjects = @[status];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"DeleteInstance" parameters:parameters returnValues:output];
@@ -179,21 +179,21 @@
 }
 
 
--(int)GetAttributesWithParameters:(NSString*)parameters OutNodeAttributeValueList:(NSMutableString*)nodeattributevaluelist{
-    int ret = 0;
+-(NSInteger)GetAttributesWithParameters:(NSString*)parameters OutNodeAttributeValueList:(NSMutableString*)nodeattributevaluelist{
+    NSInteger ret = 0;
 
     NSDictionary *parametersd = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"Parameters", nil];
-    parameterObjects = [NSArray arrayWithObjects:parameters, nil];
+    parameterKeys = @[@"Parameters"];
+    parameterObjects = @[parameters];
     parametersd = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"NodeAttributeValueList", nil];
-    outputObjects = [NSArray arrayWithObjects:nodeattributevaluelist, nil];
+    outputKeys = @[@"NodeAttributeValueList"];
+    outputObjects = @[nodeattributevaluelist];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAttributes" parameters:parametersd returnValues:output];
@@ -201,21 +201,21 @@
 }
 
 
--(int)SetAttributesWithNodeAttributeValueList:(NSString*)nodeattributevaluelist OutStatus:(NSMutableString*)status{
-    int ret = 0;
+-(NSInteger)SetAttributesWithNodeAttributeValueList:(NSString*)nodeattributevaluelist OutStatus:(NSMutableString*)status{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"NodeAttributeValueList", nil];
-    parameterObjects = [NSArray arrayWithObjects:nodeattributevaluelist, nil];
+    parameterKeys = @[@"NodeAttributeValueList"];
+    parameterObjects = @[nodeattributevaluelist];
     parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"Status", nil];
-    outputObjects = [NSArray arrayWithObjects:status, nil];
+    outputKeys = @[@"Status"];
+    outputObjects = @[status];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"SetAttributes" parameters:parameters returnValues:output];
@@ -223,15 +223,15 @@
 }
 
 
--(int)GetInconsistentStatusWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetInconsistentStatusWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetInconsistentStatus" parameters:parameters returnValues:output];
@@ -239,15 +239,15 @@
 }
 
 
--(int)GetConfigurationUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetConfigurationUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetConfigurationUpdate" parameters:parameters returnValues:output];
@@ -255,15 +255,15 @@
 }
 
 
--(int)GetCurrentConfigurationVersionWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetCurrentConfigurationVersionWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetCurrentConfigurationVersion" parameters:parameters returnValues:output];
@@ -271,15 +271,15 @@
 }
 
 
--(int)GetSupportedDataModelsUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetSupportedDataModelsUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSupportedDataModelsUpdate" parameters:parameters returnValues:output];
@@ -287,15 +287,15 @@
 }
 
 
--(int)GetSupportedParametersUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetSupportedParametersUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetSupportedParametersUpdate" parameters:parameters returnValues:output];
@@ -303,15 +303,15 @@
 }
 
 
--(int)GetAttributeValuesUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
-    int ret = 0;
+-(NSInteger)GetAttributeValuesUpdateWithOutStateVariableValue:(NSMutableString*)statevariablevalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"StateVariableValue", nil];
-    outputObjects = [NSArray arrayWithObjects:statevariablevalue, nil];
+    outputKeys = @[@"StateVariableValue"];
+    outputObjects = @[statevariablevalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetAttributeValuesUpdate" parameters:parameters returnValues:output];

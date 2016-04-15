@@ -27,34 +27,36 @@
 
 #import "SoapActionsSwitchPower1.h"
 
+#import "OrderedDictionary.h"
+
 @implementation SoapActionsSwitchPower1
 
 
--(int)SetTargetWithnewTargetValue:(NSString*)newtargetvalue{
-    int ret = 0;
+-(NSInteger)SetTargetWithnewTargetValue:(NSString*)newtargetvalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *parameterKeys = nil;
     NSArray *parameterObjects = nil;
-    parameterKeys = [NSArray arrayWithObjects:@"newTargetValue", nil];
-    parameterObjects = [NSArray arrayWithObjects:newtargetvalue, nil];
-    parameters = [NSDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
+    parameterKeys = @[@"newTargetValue"];
+    parameterObjects = @[newtargetvalue];
+    parameters = [OrderedDictionary dictionaryWithObjects:parameterObjects forKeys:parameterKeys];
 
     ret = [self action:@"SetTarget" parameters:parameters returnValues:output];
     return ret;
 }
 
 
--(int)GetTargetWithOutRetTargetValue:(NSMutableString*)rettargetvalue{
-    int ret = 0;
+-(NSInteger)GetTargetWithOutRetTargetValue:(NSMutableString*)rettargetvalue{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"RetTargetValue", nil];
-    outputObjects = [NSArray arrayWithObjects:rettargetvalue, nil];
+    outputKeys = @[@"RetTargetValue"];
+    outputObjects = @[rettargetvalue];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetTarget" parameters:parameters returnValues:output];
@@ -62,15 +64,15 @@
 }
 
 
--(int)GetStatusWithOutResultStatus:(NSMutableString*)resultstatus{
-    int ret = 0;
+-(NSInteger)GetStatusWithOutResultStatus:(NSMutableString*)resultstatus{
+    NSInteger ret = 0;
 
     NSDictionary *parameters = nil;
     NSDictionary *output = nil;
     NSArray *outputObjects = nil;
     NSArray *outputKeys = nil;
-    outputKeys = [NSArray arrayWithObjects:@"ResultStatus", nil];
-    outputObjects = [NSArray arrayWithObjects:resultstatus, nil];
+    outputKeys = @[@"ResultStatus"];
+    outputObjects = @[resultstatus];
     output = [NSDictionary dictionaryWithObjects:outputObjects forKeys:outputKeys];
 
     ret = [self action:@"GetStatus" parameters:parameters returnValues:output];
