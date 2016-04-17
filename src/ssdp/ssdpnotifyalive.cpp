@@ -114,8 +114,8 @@ int SSDPNotifyAlive::Process(struct sockaddr* sender, std::vector<SSDP_HTTP_HEAD
 
 
         //Workaround for MusicPal bug
-        int wrongdev = device->urn.find("schemas-upnp-org:device:RenderingControl:1");
-        if(wrongdev > 0){
+        size_t wrongdev = device->urn.find("schemas-upnp-org:device:RenderingControl:1");
+        if(wrongdev != std::string::npos){
             //replace schemas-upnp-org:device:RenderingControl:1 with schemas-upnp-org:service:RenderingControl:1
             char buf[] = "schemas-upnp-org:service:RenderingControl:1";
             device->urn.replace(wrongdev, sizeof(buf), buf);
