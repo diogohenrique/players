@@ -20,6 +20,7 @@
 		155126E613BF4AF90042DEBF /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 155126E413BF4AF90042DEBF /* FolderViewController.m */; };
 		155126E713BF4AF90042DEBF /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155126E513BF4AF90042DEBF /* FolderViewController.xib */; };
 		155AC14F1502F87C00817BD9 /* PlayBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 155AC14E1502F87C00817BD9 /* PlayBack.m */; };
+		9E3614631941520800CBF65D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3614621941520800CBF65D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		155126E513BF4AF90042DEBF /* FolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderViewController.xib; sourceTree = "<group>"; };
 		155AC14D1502F87C00817BD9 /* PlayBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayBack.h; sourceTree = "<group>"; };
 		155AC14E1502F87C00817BD9 /* PlayBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayBack.m; sourceTree = "<group>"; };
+		9E3614621941520800CBF65D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		15055E3213913F0A003DE49F = {
 			isa = PBXGroup;
 			children = (
+				9E3614621941520800CBF65D /* Default-568h@2x.png */,
 				15063F1A1504F55600BC2ACD /* libupnpx.a */,
 				15055E4713913F0A003DE49F /* upnpxdemo */,
 				15055E4013913F0A003DE49F /* Frameworks */,
@@ -144,7 +147,7 @@
 		15055E3413913F0A003DE49F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bruno Keymolen";
 			};
 			buildConfigurationList = 15055E3713913F0A003DE49F /* Build configuration list for PBXProject "upnpxdemo" */;
@@ -172,6 +175,7 @@
 				15055E4C13913F0A003DE49F /* InfoPlist.strings in Resources */,
 				15055E5513913F0A003DE49F /* MainWindow.xib in Resources */,
 				15055E5B13913F0A003DE49F /* RootViewController.xib in Resources */,
+				9E3614631941520800CBF65D /* Default-568h@2x.png in Resources */,
 				155126E713BF4AF90042DEBF /* FolderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,16 +228,17 @@
 		15055E5C13913F0A003DE49F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -241,13 +246,13 @@
 		15055E5D13913F0A003DE49F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -257,27 +262,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bruno Keymolen (KR5XJUP8M2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpxdemo/upnpxdemo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "upnpxdemo/upnpxdemo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../upnpx/build/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A2D69768-DD51-4616-83F4-A00206F17196";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -286,28 +289,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bruno Keymolen (KR5XJUP8M2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "upnpxdemo/upnpxdemo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "upnpxdemo/upnpxdemo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../upnpx/build/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../upnpx/build/Release-iphoneos\"",
-					"\"$(SRCROOT)/../upnpx/build/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A2D69768-DD51-4616-83F4-A00206F17196";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "../../../src/api ../../../src/port/ios";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
