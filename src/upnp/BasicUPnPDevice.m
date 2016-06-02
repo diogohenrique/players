@@ -51,6 +51,9 @@
 @synthesize baseURL;
 @synthesize baseURLString;
 @synthesize friendlyName;
+@synthesize manufacturer;
+@synthesize manufacturerURL;
+@synthesize manufacturerURLString;
 @synthesize udn;
 @synthesize usn;
 @synthesize urn;
@@ -60,6 +63,12 @@
 @synthesize smallIconURL;
 @synthesize smallIconDepth;
 @synthesize type;
+@synthesize modelDescription;
+@synthesize modelName;
+@synthesize modelNumber;
+@synthesize modelURL;
+@synthesize modelURLString;
+@synthesize serialNumber;
 
 
 -(id)init{
@@ -105,6 +114,11 @@
     [baseURL release];
     [baseURLString release];
     [friendlyName release];
+    [manufacturer release];
+    [manufacturerURL release];
+    [manufacturerURLString release];
+    [modelURL release];
+    [modelURLString release];
     [udn release];
     [usn release];
     [urn release];

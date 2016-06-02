@@ -48,7 +48,13 @@
 @synthesize iconDepth;
 @synthesize udn;
 @synthesize friendlyName;
-
+@synthesize manufacturer;
+@synthesize manufacturerURLString;
+@synthesize modelDescription;
+@synthesize modelName;
+@synthesize modelNumber;
+@synthesize modelURLString;
+@synthesize serialNumber;
 
 /****
  © 2002 Contributing Members of the UPnP™ Forum. All Rights Reserved.
@@ -114,6 +120,15 @@
         [self addAsset:@[@"root", @"device"] callfunction:@selector(rootDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"root", @"device", @"UDN"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
         [self addAsset:@[@"root", @"device", @"friendlyName"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+
+        [self addAsset:@[@"root", @"device", @"modelDescription"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelDescription:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"modelName"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelName:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"modelNumber"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelNumber:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"modelURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setModelURLString:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"serialNumber"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setSerialNumber:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"manufacturer"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturer:) setStringValueObject:self];
+        [self addAsset:@[@"root", @"device", @"manufacturerURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturerURLString:) setStringValueObject:self];
+
         [self addAsset:@[@"root", @"device", @"iconList", @"icon"] callfunction:@selector(iconFound:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"root", @"device", @"iconList", @"icon", @"mimetype"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconMime:) setStringValueObject:self];
         [self addAsset:@[@"root", @"device", @"iconList", @"icon", @"width"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setIconWidth:) setStringValueObject:self];
@@ -127,6 +142,8 @@
         [self addAsset:@[@"*", @"device", @"deviceList", @"device"] callfunction:@selector(embeddedDevice:) functionObject:self setStringValueFunction:nil setStringValueObject:nil];
         [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"UDN"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setUdn:) setStringValueObject:self];
         [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"friendlyName"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setFriendlyName:) setStringValueObject:self];
+        [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"manufacturer"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturer:) setStringValueObject:self];
+        [self addAsset:@[@"*", @"device", @"deviceList", @"device", @"manufacturerURL"] callfunction:nil functionObject:nil setStringValueFunction:@selector(setManufacturerURLString:) setStringValueObject:self];
     }
 
     return self;
@@ -142,9 +159,17 @@
     [iconDepth release];
     [udn release];
     [friendlyName release];
+    [manufacturer release];
+    [manufacturerURLString release];
 
     [friendlyNameStack release];
     [udnStack release];
+
+    [modelDescription release];
+    [modelName release];
+    [modelNumber release];
+    [modelURLString release];
+    [serialNumber release];
 
     [super dealloc];
 }
@@ -173,6 +198,22 @@
         NSURL *loc = [NSURL URLWithString:[device baseURLString]];
         if(loc != nil){
             [device setBaseURL:loc];
+        }
+    }
+
+    //Manufacturer URL
+    if ([[device manufacturerURLString] length]){
+        NSURL *loc = [NSURL URLWithString:[device manufacturerURLString]];
+        if(loc != nil){
+            [device setManufacturerURL:loc];
+        }
+    }
+    
+    //Model URL
+    if ([[device modelURLString] length]){
+        NSURL *loc = [NSURL URLWithString:[device modelURLString]];
+        if(loc != nil){
+            [device setModelURL:loc];
         }
     }
 
@@ -241,6 +282,14 @@
             //this is our device, copy the collected info to the [device] instance
             [device setUdn:udn];
             [device setFriendlyName:friendlyName];
+            [device setManufacturer:manufacturer];
+            [device setManufacturerURLString:manufacturerURLString];
+
+            [device setModelDescription:modelDescription];
+            [device setModelName:modelName];
+            [device setModelNumber:modelNumber];
+            [device setModelURLString:modelURLString];
+            [device setSerialNumber:serialNumber];
         }
     }
 }
@@ -257,6 +306,8 @@
                 //this is our device, copy the collected info to the [device] instance
                 [device setFriendlyName:friendlyName];
                 [device setUdn:udn];
+                [device setManufacturer:manufacturer];
+                [device setManufacturerURLString:manufacturerURLString];
             }
         }
         [self setUdn:[udnStack lastObject]];
