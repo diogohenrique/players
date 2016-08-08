@@ -65,10 +65,11 @@
 -(int)searchSSDP;
 -(int)searchForMediaServer;
 -(int)searchForMediaRenderer;
+-(int)searchForContentDirectory;
 -(int)notifySSDPAlive;
 -(int)notifySSDPByeBye;
--(NSUInteger)addObserver:(SSDPDB_ObjC_Observer*)obs;
--(NSUInteger)removeObserver:(SSDPDB_ObjC_Observer*)obs;
+-(NSUInteger)addObserver:(id <SSDPDB_ObjC_Observer>)obs;
+-(NSUInteger)removeObserver:(id <SSDPDB_ObjC_Observer>)obs;
 -(void)SSDPDBUpdate;
 -(void)setUserAgentProduct:(NSString*)product andOS:(NSString*)os;
 
