@@ -17,9 +17,8 @@
     UILabel *titleLabel;
 }
 
-@property (retain) UILabel *titleLabel;
+@property (strong) UILabel *titleLabel;
 
--(id)initWithMediaDevice:(MediaServer1Device*)device andHeader:(NSString*)header andRootId:(NSString*)rootId;
--(void)dealloc;
+-(instancetype)initWithMediaDevice:(MediaServer1Device*)device andHeader:(NSString*)header andRootId:(NSString*)rootId NS_DESIGNATED_INITIALIZER;
 
 @end
