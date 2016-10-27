@@ -293,7 +293,6 @@ int SSDP::RemoveObserver(SSDPObserver* observer){
     return 0;
 }
 
-
 void SSDP::SetOS(const char* os){
     if(os)
         mOS = os;
@@ -304,11 +303,8 @@ void SSDP::SetProduct(const char* product){
         mProduct = product;
 }
 
-
 std::string mOS;
-std::string mProcuct;
-
-
+std::string mProduct;
 
 int SSDP::ReadLoop(){
     int ret = 0;
