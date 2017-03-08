@@ -23,8 +23,8 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 // IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 // INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA, OR 
-// PROFITS;OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE.
@@ -32,53 +32,14 @@
 // **********************************************************************************
 
 
-#import "BasicParserAsset.h"
+#import <Foundation/Foundation.h>
 
-@interface BasicParserAsset ()  {
-    NSArray *path;
-    SEL function;
-    id functionObject;
-    SEL stringValueFunction;
-    id  stringValueObject;
-    NSMutableString *stringCache;
-}
-@end
+@interface NSString (UPnPExtentions)
 
-@implementation BasicParserAsset
+- (NSString *)XMLUnEscape;
+- (NSString *)XMLEscape;
 
-@synthesize path;
-@synthesize function;
-@synthesize functionObject;
-@synthesize stringValueFunction;
-@synthesize stringCache;
-@synthesize stringValueObject;
-
-- (instancetype)initWithPath:(NSArray *)thePath setStringValueFunction:(SEL)theValueFunction setStringValueObject:(id)obj callFunction:(SEL)theFunction functionObject:(id)funcobj {
-    self = [super init];
-    if (self) {
-        /* TODO: path -> retain property */
-        path = thePath;
-        [path retain];
-
-        stringValueFunction = theValueFunction;
-        stringValueObject = obj;
-        function = theFunction;
-        functionObject = funcobj;
-
-        NSMutableString *s = [[NSMutableString alloc] init] ;
-        [self setStringCache:s];
-        [s release];
-    }
-    return self;
-}
-
-- (instancetype)init { @throw nil; }
-
-- (void)dealloc {
-    [path release];
-    [stringCache release];
-
-    [super dealloc];
-}
+- (int)HMS2Seconds;
++ (NSString *)Seconds2HMS:(int)seconds;
 
 @end
