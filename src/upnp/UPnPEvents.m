@@ -88,6 +88,7 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
 - (void)stop {
     //Stop the subscription timer
     [mTimeoutTimer invalidate];
+    mTimeoutTimer = nil;
 }
 
 -(NSString *)subscribe:(UPnPEvents_Observer *)subscriber {
@@ -236,10 +237,6 @@ static NSUInteger const kEventSubscriptionTimeoutInSeconds = 1800;
         }
         cut = 9 - x;
     }
-
-
-    NSString *bs = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
-    [bs release];
 
     int parserret;
     if (cut > 0) {
