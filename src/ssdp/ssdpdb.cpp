@@ -186,6 +186,20 @@ vector<SSDPDBDevice*> SSDPDB::GetDevices(){
 }
 
 
+void SSDPDB::RemoveAllDevices() {
+    printf("SSDPDB::RemoveAllDevices\n");
+    Lock();
+    mDevices.clear();
+    Unlock();
+
+    SSDPDBMsg msg;
+    std::vector<SSDPDBObserver*>::iterator it;
+    msg.type = SSDPDBMsg_DeviceUpdate;
+    for(it=mObservers.begin();it<mObservers.end();it++){
+        ((SSDPDBObserver*)*it)->SSDPDBMessage(&msg);
+    }
+}
+
 
 int SSDPDB::AddObserver(SSDPDBObserver* observer){
     RemoveObserver(observer);
@@ -258,7 +272,7 @@ int SSDPDB::CacheControlLoop(){
     mRun = 1;
     SSDPDBDevice* thisdevice = NULL;
     vector<SSDPDBDevice*>::iterator it;
-    int nows;
+    time_t nows;
     u8 updated;
     while(mRun){
         sleep(CACHE_CONTROL_TIMEOUT);
